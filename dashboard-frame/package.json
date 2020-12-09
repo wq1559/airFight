@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "dev": "webpack serve --inline --config build/webpack.dev.js",
+    "dev": "webpack serve --inline --progress --config build/webpack.dev.js",
     "build": "node build/build.js"
   },
   "keywords": [],
@@ -13,7 +13,7 @@
   "dependencies": {
     "axios": "0.18.0",
     "element-ui": "^2.14.1",
-    "vue": "^2.5.2",
+    "vue": "^2.6.12",
     "vue-lodash": "2.0.0"
   },
   "devDependencies": {

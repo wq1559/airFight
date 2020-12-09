@@ -17,6 +17,7 @@ module.exports = {
     //     publicPath: '/',
     //     filename: 'app-webpack-bundle.js'
     // },
+    target: 'web',
     resolve: {
         extensions: ['.vue', '.js', '.json'],
         alias: {
@@ -30,8 +31,8 @@ module.exports = {
         port: 8888,
         hot: true,
         compress: true,
-        publicPath: '/',
         inline: true,
+        publicPath: '/',
         proxy: {
             '/api': 'http://localhost:3000',
         }
@@ -96,11 +97,11 @@ module.exports = {
     },
     plugins: [
         new VueLoaderPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
         new HTMLPlugin({
             filename: 'index.html',
             template: path.resolve(__dirname, '../index.html'),
             inject: true,
-       })
+       }),
+       new webpack.HotModuleReplacementPlugin(),
     ]
 }
