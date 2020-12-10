@@ -8,7 +8,7 @@
         <el-submenu index="1">
             <template slot="title">
             <i class="el-icon-location"></i>
-            <span>fawawd23wwwwddddawdwdawdaw1w  awawdwadwadwad</span>
+            <span>1111111111111222222222222333333阿瓦达无吊袜带我的多awdw让我d</span>
             </template>
             <el-menu-item-group>
             <template slot="title">一</template>

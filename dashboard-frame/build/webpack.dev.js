@@ -18,6 +18,7 @@ module.exports = {
     //     publicPath: '/',
     //     filename: 'app-webpack-bundle.js'
     // },
+    target: 'web',
     resolve: {
         extensions: ['.vue', '.js', '.json'],
         alias: {
@@ -31,9 +32,8 @@ module.exports = {
         port: 8888,
         hotOnly: true,
         compress: true,
-        publicPath: '/',
-        // contentBase: path.resolve(__dirname, '../static'),
         inline: true,
+        publicPath: '/',
         proxy: {
             '/api': 'http://localhost:3000',
         }
@@ -97,12 +97,16 @@ module.exports = {
         ]
     },
     plugins: [
+<<<<<<< HEAD
         new webpack.HotModuleReplacementPlugin(),
+=======
+>>>>>>> 9bf82cb4adc3c027591febd39e9451725d44ef02
         new VueLoaderPlugin(),
         new HTMLPlugin({
             filename: 'index.html',
             template: path.resolve(__dirname, '../index.html'),
             inject: true,
-       })
+       }),
+       new webpack.HotModuleReplacementPlugin(),
     ]
 }
