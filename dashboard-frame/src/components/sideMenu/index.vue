@@ -8,7 +8,7 @@
         <el-submenu index="1">
             <template slot="title">
             <i class="el-icon-location"></i>
-            <span>fawawdawd</span>
+            <span>fawawd23wwwwddddawdwdawdaw1w  awawdwadwadwad</span>
             </template>
             <el-menu-item-group>
             <template slot="title">一</template>
@@ -36,13 +36,19 @@
             <span slot="title">导航四</span>
         </el-menu-item>
         </el-menu>
+        {{name}}
     </div>
 </template>
 
 <script>
 
 export default {
-    name: 'SideMenu'
+    name: 'SideMenu',
+    data(){
+        return {
+            name: '123123123awdawdawdawdwawdawdawdwadawdwadawdawd'
+        }
+    }
 }
 </script>
 
