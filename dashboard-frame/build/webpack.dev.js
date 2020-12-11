@@ -8,12 +8,13 @@ function resolve (dir) {
     return path.join(__dirname, '..', dir)
   }
 
+  console.log(path.resolve(__dirname, 'static'),'******************************************************')
 module.exports = {
     mode: 'development',
     // context: resolve( "/"),
     entry: '@/app.js',
     // output: {
-    //     path: path.resolve(__dirname, '../static'),
+    //     path: path.resolve(__dirname, 'static'),
     //     publicPath: '/',
     //     filename: 'app-webpack-bundle.js'
     // },
@@ -27,9 +28,9 @@ module.exports = {
     },
     devtool: 'eval-source-map',
     devServer: {
-        open: true,
+        // open: true,
         port: 8888,
-        hot: true,
+        hotOnly: true,
         compress: true,
         inline: true,
         publicPath: '/',
@@ -96,6 +97,10 @@ module.exports = {
         ]
     },
     plugins: [
+<<<<<<< HEAD
+        new webpack.HotModuleReplacementPlugin(),
+=======
+>>>>>>> 9bf82cb4adc3c027591febd39e9451725d44ef02
         new VueLoaderPlugin(),
         new HTMLPlugin({
             filename: 'index.html',

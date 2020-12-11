@@ -36,13 +36,19 @@
             <span slot="title">导航四</span>
         </el-menu-item>
         </el-menu>
+        {{name}}
     </div>
 </template>
 
 <script>
 
 export default {
-    name: 'SideMenu'
+    name: 'SideMenu',
+    data(){
+        return {
+            name: '123123123awdawdawdawdwawdawdawdwadawdwadawdawd'
+        }
+    }
 }
 </script>
 
