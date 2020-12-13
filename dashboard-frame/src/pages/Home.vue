@@ -1,7 +1,12 @@
 <template>
     <div class="wrapper">
-        <SideMenu />
-        <iframe src="" frameborder="0" class="content"></iframe>
+        <header class="head"></header>
+        <div class="main">
+            <SideMenu />
+            <div class="content">
+
+            </div>
+        </div>
     </div>
 </template>
 
@@ -21,9 +26,23 @@ export default {
 <style lang="less">
     .wrapper{
         width: 100%;
-        .content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        .head{
+            width: 100%;
+            height: 80px;
+            border-bottom: 1px solid #ddd;;
+        }
+        .main {
+            flex: 1;
             width: 100%;
             height: 100%;
+            display: flex;
+            .content{
+                flex: 1;
+                background-color: #ddd;
+            }
         }
     }
 </style>

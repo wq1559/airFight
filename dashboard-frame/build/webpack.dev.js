@@ -97,10 +97,6 @@ module.exports = {
         ]
     },
     plugins: [
-<<<<<<< HEAD
-        new webpack.HotModuleReplacementPlugin(),
-=======
->>>>>>> 9bf82cb4adc3c027591febd39e9451725d44ef02
         new VueLoaderPlugin(),
         new HTMLPlugin({
             filename: 'index.html',

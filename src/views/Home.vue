@@ -119,7 +119,7 @@ export default {
                 width: 50px;
                 height: 50px;
                 border-radius: 50%;
-                background-color: #000;
+                background-color: #ddd;
                 overflow: hidden;
                 >img{
                     width: 100%;

@@ -1,5 +1,5 @@
 <template>
-    <div><Home />wdawdawdawdwdwdwad</div>
+    <div><Home /></div>
 </template>
 
 <script>
@@ -15,8 +15,16 @@ export default {
 </script>
 
 <style lang="less">
-    .content{
-        width: 100%;
-        height: 100%;
+body,html{
+    width: 100%;
+    height: 100%;
+    >div{
+       width: 100%;
+       height: 100%;  
     }
+}
+*{
+    padding: 0;
+    margin: 0;
+}
 </style>

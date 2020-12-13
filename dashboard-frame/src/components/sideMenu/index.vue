@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="menu">
        <el-menu
         default-active="2"
         class="el-menu-vertical-demo"
@@ -8,7 +8,7 @@
         <el-submenu index="1">
             <template slot="title">
             <i class="el-icon-location"></i>
-            <span>1111111111111222222222222333333阿瓦达无吊袜带我的多awdw让我d</span>
+            <span>首页</span>
             </template>
             <el-menu-item-group>
             <template slot="title">一</template>
@@ -46,12 +46,20 @@ export default {
     name: 'SideMenu',
     data(){
         return {
-            name: '123123123awdawdawdawdwawdawdawdwadawdwadawdawd'
+            name: ''
         }
     }
 }
 </script>
 
 <style lang="less">
-
+    .menu{
+        width: 200px;
+        overflow: hidden;
+        height: 100%;
+        border-right: 1px solid #ddd;
+        .el-menu{
+            border: none;
+        }
+    }
 </style>

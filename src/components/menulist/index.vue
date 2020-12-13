@@ -2,36 +2,13 @@
     <el-menu 
         class="main-menu"
     >
-        <div
-            v-for="item in menuInfo" 
-            :key='item.resourceId'
-        >
-            <el-submenu 
-                v-if="item.children && item.children.length > 0 && item.children[0].resourceType < 2" 
-                :index='String(item.resourceId)'
-                class="sub-menu"
-            >
-                <template slot="title">
-                    <i :class="item.resourceIconPath"></i>
-                    <span slot="title">{{item.resourceName}}</span>
-                </template>
-                <menu-list :menuData='item.children'></menu-list>
-            </el-submenu>
-            <el-menu-item 
-                v-else
-                @click="userClick(item.resourcePath)"
-                :index='String(item.resourceId)'
-            >
-                <i :class="item.resourceIconPath"></i>
-                <span slot="title">{{item.resourceName}}</span>
-            </el-menu-item>
-        </div>
+        <menu-item :menuData='menuData'></menu-item>
     </el-menu>
 </template>
 
 <script>
 
-import eventBus from '@/utils/eventBus'
+import MenuItem from './module/menuItem';
 
 export default {
     name: 'MenuList',
@@ -41,22 +18,9 @@ export default {
             default: () => []
         }
     },
-    data() {
-        return {
-            url: ''
-        }
-    },
-    computed: {
-        menuInfo() {
-            return this.menuData;
-        },
-    },
-    methods: {
-        userClick(url) {
-            eventBus.$emit('getUrl', url);
-        }
-        
-    },
+    components: {
+        MenuItem
+    }
 }
 </script>
 
@@ -71,13 +35,20 @@ export default {
             background-color: initial;
             color: #E0301E;
         }
+        .el-submenu:hover .el-submenu__title{
+            color: #E0301E;
+        }
+       .el-submenu.is-active .el-submenu__title{
+           color: #E0301E;
+           border-bottom-color: initial;
+       }
         .el-menu-item{
             font-size: 14px;
             position: relative;
             &.el-menu-item.is-active{
               color: #E0301E;
             }
-            &.is-active::before{
+            &.is-active::before,&:hover::before{
                 content: '';
                 position: absolute;
                 left: 0;
