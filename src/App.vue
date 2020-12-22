@@ -1,15 +1,21 @@
 <template>
-    <div><Home /></div>
+    <div class="wrapper">
+        <div class="content">
+            <Login />
+        </div>
+    </div>
 </template>
 
 <script>
 
-import  Home from '@/pages/Home'
+import Home from '@/pages/Home';
+import Login from '@/pages/Login';
 
 export default {
    name: 'App',
    components: {
-       Home
+       Home,
+       Login
    }
 }
 </script>
@@ -18,9 +24,13 @@ export default {
 body,html{
     width: 100%;
     height: 100%;
-    >div{
+    .wrapper{
        width: 100%;
-       height: 100%;  
+       height: 100%;
+       display: flex; 
+       .content{
+           flex: 1;
+       }
     }
 }
 *{
