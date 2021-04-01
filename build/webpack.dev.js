@@ -26,10 +26,11 @@ module.exports = {
             'vue$': 'vue/dist/vue.esm.js'
         },
     },
-    devtool: 'eval-source-map',
+    devtool: 'source-map',
     devServer: {
         // open: true,
         port: 8888,
+        host: '0.0.0.0',
         hotOnly: true,
         compress: true,
         inline: true,

@@ -1,9 +1,8 @@
 <template>
     <div class="login">
-        <button class="btn-sbpk">AVAILABLE NOW</button>
+        <button class="btn-sbpk" @click="test">AVAILABLE NOW</button>
     </div>
 </template>
-    
     
 <script>
 export default {
@@ -11,7 +10,12 @@ export default {
     return { 	
     
     }	
-  }	
+  },
+  methods: {
+    test() {
+        console.log(1)
+    }
+  },	
 }
 </script>
     
