@@ -14,7 +14,8 @@
     "axios": "0.18.0",
     "element-ui": "^2.14.1",
     "vue": "^2.6.12",
-    "vue-lodash": "2.0.0"
+    "vue-lodash": "2.0.0",
+    "vue-router": "^3.5.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.8",

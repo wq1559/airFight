@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
         <div class="content">
-            <Login />
+            <router-view></router-view>
         </div>
     </div>
 </template>
@@ -10,6 +10,7 @@
 
 import Home from '@/pages/Home';
 import Login from '@/pages/Login';
+
 
 export default {
    name: 'App',

@@ -14,6 +14,8 @@
 
 import SideMenu from '@/components/sideMenu';
 
+const d = 0;
+
 export default {
     name: 'Home',
     data: '',
