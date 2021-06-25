@@ -1,0 +1,43 @@
+@import "./theme_var";
+
+/* normalize */
+.el-checkbox__input.is-checked + span.el-checkbox__label {
+  color: $t--color-text;
+}
+
+.el-input.is-disabled .el-input__inner,
+.el-textarea.is-disabled .el-textarea__inner {
+  color: $t--color-text;
+}
+
+.el-radio__input.is-disabled + {
+  span.el-radio__label {
+    color: $t--color-text;
+  }
+}
+.el-radio__input.is-disabled.is-checked .el-radio__inner::after {
+  background-color: #e0301e;
+}
+
+.el-button.is-loading {
+  span {
+    display: none;
+  }
+}
+
+.el-textarea .el-input__count {
+  bottom: 10px;
+  right: 19px; // 为了避免和IE出现的滚动条重合
+  height: 20px;
+  background: transparent;
+}
+
+.c-input.el-input-number {
+  .el-input {
+    input {
+      padding-left: 10px;
+      text-align: left;
+    }
+  }
+}
+/* normalize */

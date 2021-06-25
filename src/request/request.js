@@ -48,13 +48,13 @@ class cacheRequest {
         return function () {
             const allArgs = Object.assign(arguments, args);
             return new Promise((reslove, reject) => {
-                if (queueThen.length > 0) {
+                if (cacheData) {
                     return
                 } else {
                     queueThen.push(reslove);
                     queueCatch.push(reject);
                     request.call(this, ...allArgs).then(res => {
-                        if(1==1) cacheData = res
+                        if(!cacheData) cacheData = res
                         queueThen.forEach(then => then(res));
                         queueThen.length = 0;
                         queueCatch.length = 0;

@@ -1,0 +1,31 @@
+// 2019-08-07 UI规范出台，把一些样式定义为变量，以后的样式中可以使用
+$t--fontsize-text: 12px; // 正文，提示性文字
+$t--fontsize-s_title: 14px; // 小标题
+$t--fontsize-m_title: 18px; // 弹窗、标签
+$t--fontsize-l_title: 20px; // ST名称等大标题
+
+$t--color-red: #e0301e;
+$t--color-yellow: #ffb600;
+$t--color-orange: #f58620;
+$t--color-green: #66bb6a;
+$t--color-dark_red: #8b1b1b;
+$t--color-black: #262626; // 
+$t--color-text: #404041; // 正文、标题
+$t--color-sub_text: #6d6e71; // 副标题、说明
+$t--color-inactive_text: #939499; // 未选中、注释
+$t--color-disable: #D9D9D9; // 
+$t--color-placeholder: #c4c6cc; // 未选中、注释
+$t--color-border: #e7e7e8; // 未选中、注释
+$t--color-bg: #f0f0f2; // 未选中、注释
+$t--color-shadow: rgba($t--color-text, 0.1); // 正文、标题
+
+$t--size-s: 32px;
+$t--size-m: 36px;
+$t--size-l: 40px;
+
+$t--width-s-input: 260px;
+$t--width-m-input: 300px;
+$t--width-600: 600px;
+$t--width-1080: 1080px;
+
+$t-border-radius: 4px;

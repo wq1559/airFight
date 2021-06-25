@@ -1,0 +1,1329 @@
+@import './normalize';
+@import "./theme_var";
+@import "./scroll";
+@import "./popup";
+
+
+/* fontsize */
+$fontsize-list: $t--fontsize-text, $t--fontsize-s_title, $t--fontsize-m_title, $t--fontsize-l_title;
+$fontsize-name-list: text, s, m, l;
+
+@each $f in $fontsize-list {
+  $i: index(
+    $list: $fontsize-list,
+    $value: $f,
+  );
+  $name: nth(
+    $list: $fontsize-name-list,
+    $n: $i,
+  );
+
+  .font--#{$name} {
+    font-size: $f;
+  }
+}
+/* fontsize */
+
+/* color */
+$color-list: $t--color-red, $t--color-yellow, $t--color-orange, $t--color-green, $t--color-dark_red,
+  $t--color-text, $t--color-sub_text, $t--color-inactive_text, $t--color-placeholder,
+  $t--color-border, $t--color-bg;
+$color-name-list: red, yellow, orange, green, dark_red, text, sub_text, inactive_text, placeholder,
+  border, bg;
+
+@each $c in $color-list {
+  $i: index(
+    $list: $color-list,
+    $value: $c,
+  );
+  $name: nth(
+    $list: $color-name-list,
+    $n: $i,
+  );
+
+  .color--#{$name} {
+    color: $c;
+  }
+  .bg-color--#{$name} {
+    background-color: $c;
+  }
+}
+/* color */
+
+/* box-size */
+$size-list: $t--size-s, $t--size-m, $t--size-l;
+$size-name-list: s, m, l;
+
+@each $f in $size-list {
+  $i: index(
+    $list: $size-list,
+    $value: $f,
+  );
+  $name: nth(
+    $list: $size-name-list,
+    $n: $i,
+  );
+
+  .w--#{$name} {
+    width: $f;
+  }
+  .h--#{$name} {
+    height: $f;
+  }
+  .w--#{$name}--min {
+    min-width: $f;
+  }
+  .h--#{$name}--min {
+    min-height: $f;
+  }
+}
+/* box-size */
+
+/* width */
+$width-list: $t--width-s-input, $t--width-m-input, $t--width-600, $t--width-1080;
+$width-name-list: 's-input', 'm-input', '600', '1080';
+
+@each $f in $width-list {
+  $i: index(
+    $list: $width-list,
+    $value: $f,
+  );
+  $name: nth(
+    $list: $width-name-list,
+    $n: $i,
+  );
+
+  .w--#{$name} {
+    width: $f;
+  }
+  .w--#{$name}--min {
+    min-width: $f;
+  }
+}
+/* width */
+
+/* 布局 */
+.c-main-background {
+  padding: 20px 30px;
+  .el-card + .el-card {
+    margin-top: 10px;
+  }
+}
+
+.c-collapse {
+  .el-collapse-item__header {
+    padding: 0;
+    font-size: 18px;
+  }
+}
+
+// i don't know
+@mixin sec-line-indent($base: 12px, $count: 1) {
+  $indent: ($base / 2) * (1 + $count);
+
+  text-indent: -$indent;
+  margin-left: $indent;
+  margin-right: -$indent;
+}
+
+.first-line-indent--required {
+  text-indent: 8px;
+}
+.sec-line-indent--required {
+  text-indent: -8px;
+  margin-left: 4px;
+  margin-right: -4px;
+}
+.sec-line-indent--12--1 {
+  @include sec-line-indent(12px);
+}
+.sec-line-indent--12--2 {
+  @include sec-line-indent(12px, 2);
+}
+
+/* normalize */
+.el-checkbox__input.is-checked + span.el-checkbox__label {
+  color: $t--color-text;
+}
+
+.c-operation_box {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  line-height: 38px;
+}
+.c-operation_box--small {
+  @extend .c-operation_box;
+  line-height: 32px;
+}
+.c-operation_box__right {
+  margin-left: auto;
+  display: flex;
+  align-items: flex-end;
+}
+.c-operation_button_box {
+  span {
+    height: 38px;
+  }
+  & > :not(:last-child) {
+    margin-right: 20px;
+  }
+}
+.c-flex_box {
+  display: flex;
+}
+.c-flex--center--y {
+  display: flex;
+  align-items: center;
+}
+.c-flex--center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 布局 */
+
+/* 内容 */
+.c-nav_title {
+  font-size: 14px;
+  color: $t--color-red;
+  padding-bottom: 20px;
+}
+
+div.c-breadcrumb {
+  font-size: $t--fontsize-text;
+  padding-bottom: 20px;
+  .el-breadcrumb__inner {
+    color: $t--color-placeholder;
+    font-weight: normal;
+  }
+  .el-breadcrumb__item:last-child > .el-breadcrumb__inner {
+    color: $t--color-red;
+  }
+}
+
+.c-content_card {
+  font-size: $t--fontsize-l_title;
+  border-radius: $t-border-radius;
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.05);
+  .el-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: $t--fontsize-m_title;
+    color: $t--color-black;
+    padding: 20px 30px;
+
+    .el-button-group {
+      .el-button + .el-button {
+        margin-left: 10px;
+      }
+    }
+  }
+  .el-card__body {
+    font-size: $t--fontsize-text;
+    padding: 20px 30px;
+  }
+}
+
+.c-content_title {
+  font-size: $t--fontsize-l_title;
+  color: $t--color-text;
+}
+
+.c-section_title {
+  font-size: $t--fontsize-s_title;
+  color: $t--color-text;
+  margin-bottom: 10px;
+}
+
+.c-section_title--mini {
+  @extend .c-section_title;
+  font-size: $t--fontsize-text;
+}
+
+.c-section_title--medium {
+  @extend .c-section_title;
+  font-size: $t--fontsize-m_title;
+}
+
+.c-footer_operation_box {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 30px;
+  .el-button + .el-button {
+    margin-left: 20px;
+  }
+}
+
+.c-no_data {
+  text-align: center;
+  color: $t--color-inactive_text;
+}
+
+// ############# input ###############
+div.c-input {
+  width: 300px;
+  input {
+    border-radius: 0;
+    padding: 0 10px;
+  }
+}
+
+div.c-input--small {
+  @extend .c-input;
+  width: 260px;
+}
+
+div.c-input--table {
+  @extend .c-input;
+  width: 260px;
+}
+
+// div.c-textarea--with-count {
+//   position: relative;
+//   textarea::after {
+//     content: (attr(maxlength));
+//     position: absolute;
+//     right: 10px;
+//     bottom: -10px;
+//     color: $t--color-placeholder;
+//     font-size: 12px;
+//   }
+// }
+
+div.c-textarea {
+  width: 300px;
+  textarea {
+    border-radius: 0;
+    padding: 0 10px;
+  }
+}
+
+.c-textarea--count {
+  position: absolute;
+  right: 10px;
+  bottom: -10px;
+  color: $t--color-placeholder;
+  font-size: 12px;
+}
+
+div.c-select--small {
+  @extend .c-input;
+  width: 260px;
+}
+
+.c-input--inline {
+  @extend .c-input;
+  input {
+    font-size: 12px;
+    height: 24px !important;
+    padding: 3px 7px 1px;
+  }
+}
+
+/* checkbox */
+
+.c-checkbox--large {
+  .el-checkbox__input {
+    height: 16px;
+    width: 16px;
+    .el-checkbox__inner {
+      height: 16px;
+      width: 16px;
+    }
+    .el-checkbox__inner::after {
+      border-bottom: 2px solid #fff;
+      border-right: 2px solid #fff;
+      height: 8px;
+      left: 5px;
+    }
+  }
+  .el-checkbox__label {
+    font-size: $t--fontsize-text;
+  }
+}
+
+.c-checkbox-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  .el-checkbox-button {
+    margin: 5px 10px 5px 0;
+    .el-checkbox-button__inner {
+      border: 1px solid $t--color-border;
+      height: 26px;
+      padding: 6px 9px;
+      border-radius: 13px;
+    }
+    &:first-child .el-checkbox-button__inner,
+    &:last-child .el-checkbox-button__inner {
+      border-radius: 13px;
+    }
+
+    &.is-checked {
+      .el-checkbox-button__inner {
+        color: $t--color-red;
+        border: 1px solid $t--color-red;
+        background-color: rgba($color: $t--color-red, $alpha: 0.2);
+      }
+    }
+
+    &.is-focus:not(.is-checked) {
+      .el-checkbox-button__inner {
+        border-color: $t--color-border;
+      }
+    }
+  }
+}
+
+.c-checkbox-button {
+  .el-checkbox-button__inner {
+    height: 30px;
+    padding: 8px 10px;
+    margin-bottom: 0;
+    color: $t--color-inactive_text;
+    border: none;
+    border-radius: 0;
+  }
+  &.is-checked {
+    .el-checkbox-button__inner {
+      color: white;
+      // border: 1px solid $t--color-red;
+      background-color: $t--color-red;
+    }
+  }
+}
+
+div.c-checkbox-group--top_filter {
+  color: blue;
+  .el-checkbox-button {
+    margin: 0 10px;
+    @extend .c-checkbox-button;
+  }
+}
+
+/* checkbox */
+
+/* button */
+.c-button {
+  width: 80px;
+  height: 38px;
+  padding: 0;
+  margin: auto;
+}
+.c-button--small {
+  width: 60px;
+  height: 32px;
+  padding: 0;
+  margin: auto;
+}
+body button.c-button--tiny--round {
+  // 权重问题
+  height: 26px;
+  min-width: 40px;
+  box-sizing: border-box;
+  padding: 7px 10px;
+  border-radius: 13px;
+}
+.c-operate_btn_box {
+  display: flex;
+  justify-content: flex-end;
+  button + button {
+    margin-left: 10px;
+  }
+}
+button.c-operate_btn {
+  height: 38px;
+  width: 38px;
+  box-sizing: border-box;
+  padding: 0;
+  font-size: 16px;
+  color: $t--color-red;
+  border: $t--color-bg;
+
+  i {
+    font-weight: bold;
+  }
+
+  &:not(.c-operate_btn--disabled) {
+    &:hover {
+      background-color: $t--color-red;
+      color: white;
+    }
+  }
+  &.c-operate_btn--disabled {
+    cursor: no-drop;
+  }
+}
+@mixin operateBtn($size: 38px, $fontSize: 16px) {
+  height: $size;
+  width: $size;
+  font-size: $fontSize;
+  .iconfont {
+    font-size: $fontSize;
+  }
+  @extend .c-operate_btn;
+}
+button.c-operate_btn--in_white {
+  @extend .c-operate_btn;
+  // box-sizing: border-box;
+  border: 1px solid;
+}
+button.c-operate_btn--small {
+  @include operateBtn(32px);
+}
+button.c-operate_btn--small--in_white {
+  @include operateBtn(32px);
+  border: 1px solid;
+}
+button.c-operate_btn--mini--in_white {
+  @include operateBtn(28px, 14px);
+  border: 1px solid;
+}
+button.c-operate_btn--tiny--in_white {
+  @include operateBtn(24px, 12px);
+  border: 1px solid;
+}
+button.c-operate_btn--text--in_white {
+  @include operateBtn(14px, 10px);
+  border: 1px solid;
+  vertical-align: middle;
+}
+button.c-icon_button--inline {
+  i {
+    font-size: 12px;
+    color: $t--color-sub_text;
+  }
+}
+button.c-button--pure-icon {
+  border: none;
+  font-size: 16px;
+  color: $t--color-sub_text;
+  background-color: transparent;
+  &:hover {
+    color: $t--color-red;
+    background-color: inherit;
+  }
+  &:focus {
+    color: $t--color-sub_text;
+  }
+}
+button.c-button--pure-icon--text {
+  @extend .c-button--pure-icon;
+  padding: 6px 8px;
+  font-size: 12px;
+  i {
+    font-size: 12px;
+  }
+}
+button.c-button--pure-icon--primary {
+  @extend .c-button--pure-icon;
+  border: 1px solid $t--color-red;
+  color: $t--color-red;
+}
+/* button */
+
+/* other */
+.c-hr {
+  height: 0;
+  border-bottom: 1px solid $t--color-border;
+}
+/* other */
+
+/* form */
+form.c-form {
+  &.el-form--label-top {
+    .el-form-item__label {
+      line-height: $t--fontsize-text;
+    }
+  }
+  &.el-form--label-left {
+    div.c-form_item--small {
+      .el-form-item__label {
+        line-height: 32px;
+      }
+    }
+  }
+
+  .el-form-item {
+    label {
+      font-size: $t--fontsize-text;
+      color: $t--color-sub_text;
+    }
+  }
+
+  // div.c-form_item {
+  //   margin-top: -4px;
+  // }
+
+  div.c-form_item--small {
+    // @extend .c-form_item;
+    .el-form-item__content {
+      line-height: 32px;
+    }
+  }
+
+  .el-form-item + .el-form-item {
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+
+  // 项目样式
+  // .el-switch {
+  //   @extend .c-switch;
+  // }
+}
+
+.c-form--label-clear {
+  .el-form-item__label {
+    height: initial !important;
+  }
+}
+
+div.c-form-item_group--vertical {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    width: min-content;
+  }
+  .el-checkbox + .el-checkbox,
+  .el-radio + .el-radio {
+    margin-left: 0;
+  }
+  .el-radio {
+    line-height: 40px;
+  }
+}
+
+// 用来模拟form item的样式
+.c-form_item {
+  margin-bottom: 10px;
+}
+
+.c-form_item--undisabled-style {
+  .el-radio__input.is-disabled .el-radio__inner {
+    background-color: inherit;
+    border-color: inherit;
+  }
+
+  .el-radio__input.is-disabled + span.el-radio__label {
+    color: inherit;
+  }
+
+  .el-radio__input.is-checked .el-radio__inner {
+    border-color: $t--color-red !important;
+    &::after {
+      background: $t--color-red !important;
+    }
+  }
+  .el-radio__input.is-checked + .el-radio__label {
+    color: $t--color-red !important;
+  }
+
+  /* checkbox */
+  .el-checkbox__input.is-disabled .el-checkbox__inner {
+    background-color: inherit;
+    border-color: inherit;
+  }
+
+  .el-checkbox__input.is-disabled + span.el-checkbox__label {
+    color: inherit;
+  }
+
+  .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner {
+    border-color: $t--color-red !important;
+    background: $t--color-red !important;
+    &::after {
+      border-color: white !important;
+    }
+  }
+  .el-checkbox__input.is-checked + .el-checkbox__inner {
+    color: $t--color-red !important;
+  }
+}
+.c-undisabled-style--friendly {
+  .el-radio__input.is-disabled .el-radio__inner {
+    background-color: inherit;
+    border-color: inherit;
+  }
+
+  .el-radio__input.is-disabled + span.el-radio__label {
+    color: inherit;
+  }
+
+  .el-radio__input.is-checked .el-radio__inner {
+    border-color: $t--color-red !important;
+    &::after {
+      background: $t--color-red !important;
+    }
+  }
+  .el-radio__input.is-checked + .el-radio__label {
+    color: $t--color-red !important;
+  }
+
+  /* checkbox */
+
+  .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner {
+    border-color: $t--color-red !important;
+    background: $t--color-red !important;
+    &::after {
+      border-color: white !important;
+    }
+  }
+  .el-checkbox__input.is-checked + .el-checkbox__inner {
+    color: $t--color-red !important;
+  }
+}
+/* form */
+
+/* table */
+@mixin dialog-table__normal {
+  .el-table__header-wrapper {
+    .el-table__header {
+      height: 40px;
+      thead {
+        tr {
+          th {
+            border-bottom: 1px solid #ebeef5;
+          }
+          th:first-child {
+            padding-left: 20px;
+          }
+        }
+      }
+    }
+  }
+  .el-table__body-wrapper {
+    .el-table__body {
+      border-spacing: 0;
+      tr {
+        height: 50px;
+      }
+      .el-table__row {
+        td {
+          border-radius: 0;
+          border-bottom: none;
+          background: #fafafa;
+        }
+        td:first-child {
+          padding-left: 20px;
+        }
+      }
+      .el-table__row--striped {
+        td {
+          background: white;
+        }
+      }
+    }
+  }
+  &::before {
+    height: 0;
+  }
+  .table_nodata {
+    background: white;
+  }
+}
+div.c-table {
+  position: relative;
+  background: none;
+  font-size: 1.2rem;
+
+  .el-table__header-wrapper {
+    height: 50px;
+  }
+
+  .el-table__body {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+  }
+
+  table {
+    thead {
+      color: $t--color-sub_text;
+
+      tr {
+        height: 50px;
+        border: none;
+        background: none;
+        border-radius: 0;
+      }
+
+      th {
+        background: none;
+
+        &.is-leaf {
+          border-bottom: none;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        height: 50px;
+        background-color: white;
+        border-radius: 0;
+        cursor: pointer;
+
+        &:hover {
+          box-shadow: 5px 5px 5px $t--color-shadow;
+
+          td:first-child {
+            border-left: 4px solid $t--color-red;
+            border-radius: 0px;
+
+            .cell {
+              padding-left: 6px;
+            }
+          }
+        }
+
+        &.current-row {
+          height: 70px;
+          box-shadow: 5px 5px 5px $t--color-shadow;
+
+          td:first-child {
+            border-left: 4px solid $t--color-red;
+            border-radius: 0;
+
+            .cell {
+              padding-left: 6px;
+            }
+          }
+        }
+
+        td {
+          background: none;
+
+          .cell {
+            word-break: keep-all;
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+  }
+
+  .table_nodata {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-top: 20px;
+    background: #f0f0f2;
+    text-align: center;
+    z-index: 120;
+
+    img {
+      width: 45px;
+      height: 55px;
+    }
+
+    p {
+      margin-top: 5px;
+      height: 20px;
+      line-height: 20px;
+      font-size: 12px;
+      color: #c8cad0;
+    }
+  }
+}
+div.c-table--dialog {
+  @include dialog-table__normal();
+}
+
+.c-table--no-row-hover {
+  .el-table__row {
+    td:first-child {
+      border-left: none;
+    }
+  }
+  .el-table__row:hover {
+    box-shadow: none;
+    td:first-child {
+      border-left: none;
+    }
+  }
+  .el-table__body tr:hover > td {
+    background-color: inherit;
+  }
+}
+/* table */
+
+/* dialog */
+.c-dialog {
+  .el-dialog__header {
+    margin: 0 20px;
+    padding: 15px 0;
+    border-bottom: 1px solid $t--color-bg;
+    background-color: white;
+  }
+  .el-dialog__body {
+    padding: 30px 20px;
+  }
+}
+
+.c-dialog_footer-btn {
+  display: flex;
+  justify-content: flex-end;
+  & > :not(:last-child) {
+    margin-right: 30px;
+  }
+}
+/* dialog */
+
+/* switch */
+.c-switch {
+  .el-switch__core {
+    &::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      right: 5px;
+      width: 6px;
+      height: 4px;
+      border: 2px solid #fff;
+      border-right: none;
+      border-top: none;
+      transform: rotate(-45deg);
+      z-index: 100;
+      opacity: 0;
+    }
+  }
+  &.is-checked {
+    .el-switch__core {
+      border-color: #fad6cd;
+      background-color: #fad6cd;
+      &::after {
+        background: #e63007;
+      }
+
+      &::before {
+        transition-delay: 0.2s;
+        opacity: 1;
+      }
+    }
+  }
+}
+/* switch */
+/* popover */
+div.c-tooltip {
+  padding: 8px 10px;
+  background-color: rgba($color: $t--color-text, $alpha: 0.5);
+  border: none;
+  .popover_content {
+    color: white;
+    font-size: $t--fontsize-text;
+  }
+}
+.c-tooptip--top {
+  min-width: 60px;
+  text-align: center;
+  .popper__arrow::after {
+    border-top-color: rgba($color: $t--color-text, $alpha: 0.5);
+  }
+}
+div.c-tooltip[x-placement^='top-end'] {
+  @extend .c-tooptip--top;
+}
+div.c-tooltip[x-placement^='top'] {
+  @extend .c-tooptip--top;
+}
+/* popover */
+
+/* top_filter */
+div.c-top_filter {
+  display: flex;
+  background-color: white;
+  padding: 13px 10px;
+  & > span {
+    font-size: $t--fontsize-s_title;
+    line-height: 30px;
+    font-weight: bold;
+  }
+  div.el-checkbox-group {
+    margin-left: 20px;
+    @extend .c-checkbox-group--top_filter;
+  }
+}
+/* top_filter */
+
+/* tabs */
+// 没有边框的tab
+div.c-tabs--biref {
+  .el-tabs__header {
+    border: none;
+    border-bottom: none !important;
+    margin-bottom: 0;
+
+    .el-tabs__nav-scroll {
+      .el-tabs__nav {
+        border: none;
+
+        .el-tabs__item {
+          color: $t--color-inactive_text;
+          border: none;
+          padding-left: 0;
+          padding-right: 40px;
+
+          &.is-active {
+            color: $t--color-red;
+            &::after {
+              content: '';
+              position: absolute;
+              left: 0;
+              top: 10px;
+              bottom: 0px;
+              width: calc(100% - 42px);
+              border-bottom: 2px solid;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+div.c-tabs--biref--small {
+  @extend .c-tabs--biref;
+  .el-tabs__item {
+    font-size: $t--fontsize-text;
+    color: $t--color-text;
+    &.is-active {
+      &::after {
+        bottom: 10px !important;
+      }
+    }
+  }
+}
+/* tabs */
+
+.c-scroll {
+  /*滚动条整体样式*/
+  &::-webkit-scrollbar {
+    /*高宽分别对应横竖滚动条的尺寸*/
+    width: 6px;
+    height: 6px;
+  }
+
+  /*滚动条里面小方块*/
+  &::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background: $t--color-placeholder;
+    height: 46px;
+    // box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+  }
+
+  /*滚动条里面轨道*/
+  &::-webkit-scrollbar-track {
+    border-radius: 3px;
+    background: #fff;
+    // box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $t--color-inactive_text;
+  }
+  // &::-webkit-scrollbar-thumb:active {
+  //   background-color: $t--color-text;
+  // }
+  /*边角，即两个滚动条的交汇处*/
+  &::-webkit-scrollbar-corner {
+    background-color: #ffffff;
+  }
+}
+
+.c-scroll--x {
+  @extend .c-scroll;
+  &::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 3px;
+  }
+}
+
+/* filter_board */
+div.service_type-filter {
+  width: 100%;
+
+  .el-form-item__label {
+    font-size: $t--fontsize-text;
+  }
+
+  .el-form-item__content {
+    font-size: $t--fontsize-text;
+    .el-collapse-item__header {
+      font-size: $t--fontsize-text;
+      border: none;
+      height: 26px;
+    }
+    .el-collapse-item__arrow {
+      height: 25px;
+      line-height: 25px;
+    }
+    .el-checkbox__label {
+      font-size: $t--fontsize-text;
+    }
+  }
+
+  .el-collapse {
+    border: none;
+  }
+  .service_type__title {
+    display: flex;
+    line-height: 20px;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+    color: #606266;
+
+    .select_num {
+      background: $t--color-red;
+      height: 20px;
+      padding: 0 10px;
+      color: #fff;
+      margin-right: 4px;
+      border-radius: 10px;
+    }
+  }
+  .checklist {
+    padding-top: 10px;
+
+    .check_item {
+      height: 26px;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.c-filter_board {
+  background: #fff;
+  padding: 8px;
+
+  .el-form-item {
+    @extend .service_type-filter;
+    .c-form__content--high {
+      max-height: 40vh;
+      overflow: auto;
+      @extend .c-scroll;
+    }
+  }
+
+  .c-dialog_footer-btn {
+    font-size: 16px;
+    border-top: 2px solid #f0f0f2;
+    width: calc(100% + 40px);
+    position: relative;
+    left: -20px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      height: 16px;
+      margin: 0;
+    }
+    button:nth-child(1) {
+      color: $t--color-text;
+    }
+    button:nth-child(2) {
+      color: $t--color-red;
+    }
+  }
+}
+/* filter_board */
+
+/* data-picker */
+div.c-data-picker--range {
+  .el-range__icon {
+    display: none;
+  }
+}
+/* data-picker */
+
+/* 图表 */
+.c-chart_desc {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  padding-top: 10px;
+}
+/* 图表 */
+
+/* 分页 */
+div.c-pagination {
+  display: flex;
+  justify-content: center;
+  // max-width: 700px;
+  margin: 20px auto 0;
+
+  button,
+  li {
+    font-size: 1.4rem;
+  }
+
+  .btn-prev,
+  .btn-next {
+    border-radius: 0;
+    background: none;
+    width: 30px;
+    height: 28px;
+
+    span {
+      color: $t--color-red;
+    }
+  }
+
+  .btn-prev {
+    margin-right: 5px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .btn-next {
+    margin: 0 10px 0 5px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .number.active,
+  .number:hover,
+  .btn-prev:hover,
+  .btn-next:hover {
+    color: white;
+    background-color: $t--color-red;
+
+    span {
+      color: white;
+    }
+
+    &[disabled='disabled'] {
+      background-color: white;
+
+      span {
+        color: $t--color-inactive_text;
+      }
+    }
+  }
+
+  .el-pager {
+    .number,
+    .el-icon {
+      border-radius: 0;
+      background: none;
+      min-width: 30px;
+      margin: 0 3px;
+      font-size: 1.4rem;
+      color: $t--color-text;
+      font-weight: normal;
+
+      &:hover {
+        background-color: $t--color-red;
+        color: white;
+      }
+
+      &.active {
+        background-color: $t--color-red;
+        color: white;
+      }
+    }
+  }
+
+  .el-pagination__total:after {
+    margin-left: 5px;
+    content: 'Records';
+  }
+
+  .el-pagination__jump {
+    height: 28px;
+    line-height: 28px;
+
+    .el-pagination__editor.el-input {
+      margin-left: 10px;
+      width: 60px;
+      height: 40px;
+
+      .el-input__inner {
+        height: 28px;
+        &:focus {
+          border-color: $t--color-red;
+        }
+      }
+    }
+  }
+}
+/* 分页 */
+
+.c-download_template {
+  display: inline-block;
+  margin: 0;
+  padding: 0 10px;
+  margin-left: 40px;
+  line-height: 40px;
+  cursor: pointer;
+  color: $t--color-red;
+  font-size: 1.4rem;
+  text-decoration: none;
+}
+
+/* Message类 */
+.c-message_box {
+}
+
+/* 修饰 */
+.c-text--required {
+  &::before {
+    content: '*';
+    color: $t--color-red;
+    margin-right: 4px;
+  }
+}
+
+.c-scroll {
+  /*滚动条整体样式*/
+  &::-webkit-scrollbar {
+    /*高宽分别对应横竖滚动条的尺寸*/
+    width: 6px;
+    height: 6px;
+  }
+
+  /*滚动条里面小方块*/
+  &::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background: $t--color-placeholder;
+    height: 46px;
+    // box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+  }
+
+  /*滚动条里面轨道*/
+  &::-webkit-scrollbar-track {
+    border-radius: 3px;
+    background: #fff;
+    // box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.2);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $t--color-inactive_text;
+  }
+  // &::-webkit-scrollbar-thumb:active {
+  //   background-color: $t--color-text;
+  // }
+  /*边角，即两个滚动条的交汇处*/
+  &::-webkit-scrollbar-corner {
+    background-color: #ffffff;
+  }
+}
+
+.c-scroll--x {
+  @extend .c-scroll;
+  &::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 3px;
+  }
+}
+
+.c-required::before {
+  content: '*';
+  padding-right: 4px;
+  color: $t--color-red;
+}

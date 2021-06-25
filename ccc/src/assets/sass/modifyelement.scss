@@ -1,0 +1,421 @@
+//el-tooltip样式重写
+body{
+  .el-tooltip__popper.is-light {
+      background: #fff !important;
+      border: none;
+      box-shadow: 1px 2px 4px rgba(64, 64, 65, 0.4);
+      color: $dark_grey;
+  
+      &>div {
+        padding: 10px;
+  
+        p {
+          line-height: 2rem;
+        }
+      }
+  
+      &>.popper__arrow {
+        padding: 0;
+      }
+    }
+  
+    .el-tooltip__popper.is-light[x-placement^=top] .popper__arrow {
+      border-top-color: #939499;
+    }
+  
+    .el-tooltip__popper.is-light[x-placement^=right] .popper__arrow {
+      border-right-color: #939499;
+    }
+  
+    .el-tooltip__popper.is-light[x-placement^=bottom] .popper__arrow {
+      border-bottom-color: #939499;
+    }
+  
+    .el-tooltip__popper.is-light[x-placement^=left] .popper__arrow {
+      border-left-color: #939499;
+    }
+  
+    .el-tooltip__popper.is-dark.popper-tip {
+      background: #939499;
+    }
+  
+    .el-tooltip__popper.is-dark.popper-tip[x-placement^=top-start] .popper__arrow {
+      border-top-color: #939499;
+    }
+  
+    .el-tooltip__popper.is-dark.popper-tip[x-placement^=top-start] .popper__arrow:after {
+      border-top-color: #939499;
+    }
+  
+    .el-tooltip__popper.is-dark.popper-tip[x-placement^=right] .popper__arrow {
+      border-right-color: #939499;
+    }
+  
+    .el-tooltip__popper.is-dark.popper-tip[x-placement^=right] .popper__arrow:after {
+      border-right-color: #939499;
+    }
+  
+    .el-tooltip__popper.is-dark.popper-tip[x-placement^=top] .popper__arrow {
+      border-top-color: #939499;
+    }
+  
+    .el-tooltip__popper.is-dark.popper-tip[x-placement^=top] .popper__arrow:after {
+      border-top-color: #939499;
+    }
+  
+    .el-tooltip__popper.is-dark.gray {
+      background: #939499;
+    }
+  
+    .el-tooltip__popper.is-dark.gray[x-placement^=bottom-start] .popper__arrow {
+      border-bottom-color: #939499;
+    }
+  
+    .el-tooltip__popper.is-dark.gray[x-placement^=bottom-start] .popper__arrow:after {
+      border-bottom-color: #939499;
+    }
+}
+//title带下划线的dialog
+.el-dialog {
+  .el-dialog__header {
+    padding: 20px 0 10px 0;
+    margin: 0 20px;
+    border-bottom: 1px solid #e7e7e8;
+
+    .el-dialog__title {
+      color: #404041;
+    }
+  }
+}
+
+//几种table 常见的 tableComponent
+.tableComponent,
+.tableComponentFont14,
+.hasFixedTable,
+.has_nodata_img {
+  position: relative;
+  .table_nodata {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-top: 20px;
+    background: #f0f0f2;
+    text-align: center;
+    z-index: 120;
+
+    img {
+      width: 45px;
+      height: 55px;
+    }
+
+    p {
+      margin-top: 5px;
+      height: 20px;
+      line-height: 20px;
+      font-size: 12px;
+      color: #c8cad0;
+    }
+  }
+}
+.tableComponent,
+.tableComponentFont14 {
+  width: 100%;
+  margin-top: 10px;
+  position: relative;
+
+  .el-table {
+    background: none;
+    font-size: 1.2rem;
+
+    .el-table__header-wrapper {
+      height: 50px;
+    }
+
+    .el-table__body {
+      border-collapse: separate;
+      border-spacing: 0 10px;
+    }
+
+    table {
+      thead {
+        color: $dark_grey;
+
+        tr {
+          height: 50px;
+          border: none;
+          background: none;
+          border-radius: 0;
+        }
+
+        th {
+          background: none;
+
+          &.is-leaf {
+            border-bottom: none;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          height: 50px;
+          background-color: white;
+          border-radius: 0;
+          cursor: pointer;
+
+          &:hover {
+            box-shadow: 5px 5px 5px $shadow;
+
+            td:first-child {
+              border-left: 4px solid $red;
+              border-radius: 0px;
+
+              .cell {
+                padding-left: 6px;
+              }
+            }
+
+            .el-table-column--selection {
+              .cell {
+                padding-left: 10px !important;
+              }
+            }
+          }
+
+          &.current-row {
+            height: 70px;
+            box-shadow: 5px 5px 5px $shadow;
+
+            td:first-child {
+              border-left: 4px solid $red;
+              border-radius: 0;
+
+              .cell {
+                padding-left: 16px;
+              }
+            }
+          }
+
+          td {
+            background: none;
+
+            .cell {
+              word-break: keep-all;
+              white-space: nowrap;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
+.hasFixedTable {
+  width: 100%;
+  margin-top: 10px;
+
+  .el-table__fixed-header-wrapper {
+    thead {
+      background: $background;
+    }
+  }
+
+  .el-table {
+    background: none;
+    font-size: 1.2rem;
+
+    .el-table__header-wrapper {
+      height: 50px;
+    }
+
+    .el-table__body {
+      border-collapse: separate;
+      border-spacing: 0 10px;
+    }
+
+    table {
+      thead {
+        color: $dark_grey;
+
+        tr {
+          height: 50px;
+          border: none;
+          background: none;
+          border-radius: 0;
+        }
+
+        th {
+          background: none;
+
+          &.is-leaf {
+            border-bottom: none;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          height: 50px;
+          background-color: white;
+          border-radius: 0;
+          cursor: pointer;
+
+          &:hover {
+ 
+          }
+
+          &.current-row {
+            height: 70px; //box-shadow: 5px 5px 5px $shadow;
+
+          }
+
+          td {
+            background: none;
+
+            .cell {
+              word-break: keep-all;
+              white-space: nowrap;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .el-table__body-wrapper {
+    tr.hover-row {
+      box-shadow: 5px 5px 5px $shadow;
+
+      td:first-child {
+        border-left: 4px solid $red;
+        border-radius: 0;
+
+        .cell {
+          padding-left: 6px;
+        }
+      }
+    }
+  }
+
+  .el-table__fixed-body-wrapper {
+    tr.hover-row {
+      td:first-child {
+        border-left: 4px solid $red;
+        border-radius: 0;
+
+        .cell {
+          padding-left: 6px;
+        }
+      }
+    }
+  }
+}
+//几种table结束
+
+//分页
+.paging {
+  .el-input__inner {
+    height: 28px !important;
+  }
+
+  .el-pagination {
+    max-width: 600px;
+    margin: 20px auto 0;
+
+    button,
+    li {
+      font-size: 1.4rem;
+    }
+
+    .btn-prev,
+    .btn-next {
+      border-radius: 0;
+      background: none;
+      width: 30px;
+      height: 28px;
+
+      span {
+        color: $red;
+      }
+    }
+
+    .btn-prev {
+      margin-right: 5px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .btn-next {
+      margin: 0 10px 0 5px;
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .number.active,
+    .number:hover,
+    .btn-prev:hover,
+    .btn-next:hover {
+      color: white;
+      background-color: $red;
+
+      span {
+        color: white;
+      }
+
+      &[disabled=disabled] {
+        background-color: white;
+
+        span {
+          color: $font-unactive;
+        }
+      }
+    }
+
+    .el-pager {
+
+      .number,
+      .el-icon {
+        border-radius: 0;
+        background: none;
+        min-width: 30px;
+        margin: 0 3px;
+        font-size: 1.4rem;
+        color: $font-active;
+        font-weight: normal;
+
+        &:hover {
+          background-color: $red;
+          color: white;
+        }
+
+        &.active {
+          background-color: $red;
+          color: white;
+        }
+      }
+    }
+
+    .el-pagination__total:after {
+      margin-left: 5px;
+      content: 'Records';
+    }
+
+    .el-pagination__jump {
+      height: 28px;
+      line-height: 28px;
+
+      .el-pagination__editor.el-input {
+        margin-left: 10px;
+        width: 60px;
+        height: 40px;
+
+        & .el-input__inner:focus {
+          border-color: $red;
+        }
+      }
+    }
+  }
+}
+//分页结束

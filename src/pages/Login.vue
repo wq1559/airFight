@@ -17,8 +17,8 @@ export default {
   },
   mounted() {},
     methods: {
-        test() {
-           d({
+        async test() {
+           let a = await d({
                url: '/456'
            })
         }
