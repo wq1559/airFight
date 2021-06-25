@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "0.18.0",
+    "axios": "0.21.1",
     "element-ui": "^2.14.1",
     "vue": "^2.6.12",
     "vue-lodash": "2.0.0",
